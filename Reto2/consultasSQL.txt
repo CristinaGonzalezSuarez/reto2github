@@ -1,0 +1,67 @@
+SELECT * FROM COSTUME;
+
+BEGIN
+    INSERT INTO COSTUME(BRAND, MODEL,
+    CATEGORY_ID, NAME)
+    VALUES(:brand, :model, :category_id, :name);
+:status_code:=201;
+END;
+
+BEGIN
+    UPDATE COSTUME SET BRAND=:brand, MODEL=:model,
+    CATEGORY_ID=:category_id, NAME=:name
+    WHERE ID=:id;
+:status_code:=201;
+END;
+
+BEGIN
+    DELETE FROM COSTUME
+    WHERE ID = :id;
+:status_code:=204;
+END;
+
+SELECT * FROM CLIENT;
+
+BEGIN
+    INSERT INTO CLIENT(ID, NAME, EMAIL, AGE)
+    VALUES(:id, :name, :email, :age);
+    :status_code := 201;
+END;
+
+BEGIN
+    UPDATE CLIENT
+    SET
+    EMAIL = :email,
+    AGE = :age,
+    NAME = :name
+    WHERE ID = :id;
+    :status_code := 201;
+END;
+
+BEGIN
+    DELETE FROM CLIENT
+    WHERE ID = :id;
+    :status_code := 201;
+END;
+
+SELECT * FROM MESSAGE;
+
+BEGIN
+    INSERT INTO MESSAGE(ID, MESSAGETEXT)
+    VALUES(:id, :messagetext);
+    :status_code := 201;
+END;
+
+BEGIN
+    UPDATE MESSAGE
+    SET
+    MESSAGETEXT = :messagetext
+    WHERE ID = :id;
+:status_code := 201;
+END;
+
+BEGIN
+    DELETE FROM MESSAGE
+    WHERE ID = :id;
+    :status_code := 204;
+END;
